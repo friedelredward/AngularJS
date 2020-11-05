@@ -50,9 +50,8 @@ angular.module('myApp')
 }]);
 
 angular.module('myApp')
-        .controller('examplePromisesController', [ function(){
+        .controller('examplePromisesController', ['$q', function($q){
             var vm=this;
-            
             
 
 }]);

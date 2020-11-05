@@ -84,7 +84,14 @@ angular.module('myApp').filter('yesorno', function(){
 });
  ```
 # the convention is to tag controller `var vm=this` to viewmodel
-# watchers Listeners are based on scope
+# watchers Listeners are based on scope (check mainController watch)
+
+# Handling promises
+- having multiple promises u can queue them all and then set the values with
+```javascript
+var completed= $q.all([promise1, promise2, promise3]);
+```
+
 
 
 
