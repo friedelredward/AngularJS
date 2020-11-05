@@ -20,8 +20,46 @@
   <hr/>
 <input type="text" ng-model="itemIndex"/><button ng-click="setItem()">Get Item</button>
 <pre>  has elegido :{{ actualItem }} </pre>
+<hr>
+<!--Scope & Model-->
+<h3>2way databinding limitations and workarounds; change value to see effects</h3>
+<div ng-controller="FatherController">
+  <input type="text" ng-model="mimensaje"/>||with model||<input type="text" ng-model="model.mimensaje"/>
 
+  <div ng-controller="ChildController">
 
+    <input type="text" ng-model="mimensaje"/>||with model||<input type="text" ng-model="model.mimensaje"/>
+  </div>
+</div>
+<div ng-controller="FatherController">another father no afta el model anterior(esta en su respectivo scope)
+  <input type="text" ng-model="mimensaje"/>||with model||<input type="text" ng-model="model.mimensaje"/>
+</div>
+<hr>
+<!--Service data sharing-->
+<h3> databinding for different components(unrelated)</h3>
+<div ng-controller="indieController">
+  <input type="text" ng-model="model.mimensaje"/>
+</div>
+<div ng-controller="indieController2">
+  <input type="text" ng-model="model.mimensaje"/>
+</div>
+<hr>
+<!--controller sintax and scope.. funciona igual que el scope.. no con model
+pero aki si se pueden llamar igual las variables sin sideffects-->
+
+<div ng-controller="sintaxFatherController as father">
+  <input type="text" ng-model="father.mimensaje"/>
+
+  <div ng-controller="sintaxController as sintaxC">
+    <input type="text" ng-model="sintaxC.mimensaje"/>||from father||  <input type="text" ng-model="father.mimensaje"/>
+    <p>valor: {{ sintaxC.valor}}</p>
+  </div>
+</div>
+<hr>
+<!--Custom filter-->
+<div ng-controller="sintaxFatherController as father">
+  <p>{{father.mimensaje | capitalize}} <i>formateado con custom filter</i></p>
+</div>
 
 </body>
 </html>
