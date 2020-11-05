@@ -14,19 +14,30 @@
   <script src="lib/angular/angular.js"></script>
   <script src="app.js"></script>
 </head>
-<body ng-controller="MainController">
-  
-<div ng-controller="sintaxFatherController as father">
+<body ng-controller="MainController as main">
 
+  <form novalidate name="userForm">
+    <label>Name: </label>
+      <input type="text" ng-model="user.name" required="required"/><br />
+    <label>E-mail: </label>
+      <input type="email" ng-model="user.email" required/><br />
+    <button  ng-click="main.submitForm(userForm)" >
+      Sumbit Form</button>
+  </form>
+  <!-- watcher -->
+  <input type="text" ng-model="main.nombre"/>
+  <p>{{ main.nombre }}</p>
+  <h4>{{ main.msge}}</h4>
+<hr>
+[[main.user.nombre]]
+ <!--Custom filter-->  
+<div ng-controller="exampleController as father">
   <hr>
   <input type="checkbox" ng-model="father.algo.isActive"/>
   <p>{{ father.algo.isActive | yesorno }} formateado con custom filter</p>
 
 
 </div>
-<hr>
-<!--Custom filter-->
-
 
 </body>
 </html>
