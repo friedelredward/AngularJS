@@ -75,3 +75,16 @@ angular.module('myApp').filter('yesorno', function(){
     <li>
  ```
 
+ ## configure interpolator
+ ```javascript
+ angular.module('myApp').config(function($interpolateProvider){
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
+
+});
+ ```
+# the convention is to tag controller `var vm=this` to viewmodel
+# watchers Listeners are based on scope
+
+
+
