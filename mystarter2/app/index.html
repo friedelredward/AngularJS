@@ -14,8 +14,18 @@
   <script src="lib/angular/angular.js"></script>
   <script src="app.js"></script>
 </head>
-<body ng-controller="MainController">
-  
+<body ng-controller="MainController as main">
+
+  <form novalidate name="userForm">
+    <label>Name: </label>
+      <input type="text" ng-model="user.name" required="required"/><br />
+    <label>E-mail: </label>
+      <input type="email" ng-model="user.email" required/><br />
+    <button  ng-click="main.submitForm(userForm)" >
+      Sumbit Form</button>
+  </form>
+
+ <!--Custom filter-->  
 <div ng-controller="sintaxFatherController as father">
 
   <hr>
@@ -24,9 +34,6 @@
 
 
 </div>
-<hr>
-<!--Custom filter-->
-
 
 </body>
 </html>

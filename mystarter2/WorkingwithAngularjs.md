@@ -41,3 +41,30 @@ angular.module('myApp').filter('yesorno', function(){
 ```
 </details>
  - ng-repeat `|orderBy |limitTo :2:3` filters; __se pueden encadenar!!__
+ ## Validation
+ - with html(required) + angular directives + css
+ 
+ > remember
+
+ ```html
+ <form novalidate name="userForm">
+ ....</form>
+     <button  ng-click="main.submitForm(userForm)" >
+      Sumbit Form</button>
+ ```
+ - thanks to special clases we can do this:
+
+ ```css
+ input.ng-dirty.ng-valid{color:green};
+ input.ng-dirty.ng-valid{background-color:red};
+ ```
+ - `ng-pattern` /// `ng-minlength` /// 
+ - special css clsases: 
+ ```css
+ div.ng-scope{}
+ .ng-binding{}
+ .ng-dirty{}
+ .ng-pristine{}
+ .ng-touched{}
+ ```
+
