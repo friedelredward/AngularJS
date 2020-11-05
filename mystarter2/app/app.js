@@ -1,9 +1,19 @@
 'use strict';
 
-angular.module('myApp', []);//se declara vacio y se va rellenando
+angular.module('myApp', []);
+/**Interpolator + config */
+/**COMENTR STO PQARA KE FUNCIONE EL RESTO */
+angular.module('myApp').config(function($interpolateProvider){
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
+
+});
+
 angular.module('myApp')
         .controller('MainController', ['$scope','$interval', function($scope, $interval){
-            this.user={};
+            this.user={
+                nombre: "test"
+            };
 
             this.submitForm= function(form){
                 if (form.$valid) {

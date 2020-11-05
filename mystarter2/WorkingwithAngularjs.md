@@ -67,4 +67,11 @@ angular.module('myApp').filter('yesorno', function(){
  .ng-pristine{}
  .ng-touched{}
  ```
+ ## Using a filter on ng repeat ro create list filter
+ ```html
+ ng.model="main.userSelectedType"
+    <li ng-repeat="item in main.items | filter: main.userSelectedType">
+    {{ item.name }} -> {{ item.type }} 
+    <li>
+ ```
 
