@@ -91,7 +91,7 @@ angular.module('myApp').filter('yesorno', function(){
 ```javascript
 var completed= $q.all([promise1, promise2, promise3]);
 ```
-## Angular foreach
+## Angular foreach + issers(https://docs.angularjs.org/api/ng/function/angular.isArray)
 ```javascript
 angular.forEach(itemsArray, function(item){
     //do smth with item
