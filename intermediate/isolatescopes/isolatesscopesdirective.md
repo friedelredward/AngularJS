@@ -51,3 +51,4 @@ angular.module('myApp').directive('testCss', ()=>{
      };
  });
 ```
+- Replace property  `replace:true`only works when directive used as __element__ `restrict:'E'`
