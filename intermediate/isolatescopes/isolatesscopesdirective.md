@@ -36,3 +36,18 @@ replace directive elements in HTML markup
 - We can __add dynamic functionality__ to the directive by __invoking outerscope(controller) functions__
 
 > passing strings to isolated scope check main controller, test vehicle View directive.
+
+linking shorthand example for style directive that adds class
+```javascript
+/*get injected automatically those attributes*/
+angular.module('myApp').directive('testCss', ()=>{
+     return function(scope, element, attrs){
+         element.bind('mouseover'function(){
+             element.addClass('');
+         });
+         element.bind('mouseout'function(){
+             element.removeClass('');
+         });
+     };
+ });
+```
