@@ -8,6 +8,15 @@ angular.module('myApp', []).run(function($rootScope){
         age: 36
     };
 });
+/**Directive declaration and use..se html
+ * very important Syntax Atribbute Element Class
+ */
+angular.module('myApp').directive('myDirective', ()=>{
+    return {
+        template: 'Hello from custom directive',
+        restrict:'AEC'
+    };
+});
 
 angular.module('myApp')
         .controller('MainController', ['$scope','$interval', function($scope, $interval){
