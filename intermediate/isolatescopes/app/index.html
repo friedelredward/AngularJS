@@ -27,7 +27,20 @@
   </p>
   
 <hr>
-
+<h4>passing strings to isolated scopes</h4>
+{{main.item1}}-{{main.item2}}
+observar con el objeto es jason y no puede
+    <test-Vehicle-View name="asdf"
+      year="123"
+      maker="test"
+      model="test1"
+      coche="{{item1}}"></test-Vehicle-View>
+    <test-Vehicle-View name="2"
+      year="test2"
+      maker="test2"
+      model="test2"
+      coche="{{item2}}"></test-Vehicle-View>
+<hr>
 <div ng-controller="exampleController as example">
   <p>random rumbers:
     <test-functions count="3"

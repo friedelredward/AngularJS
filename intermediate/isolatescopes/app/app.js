@@ -11,6 +11,7 @@ angular.module('myApp', []);
          restrict: 'AE'
      };
  });
+ 
  angular.module('myApp').directive('testFunctions', ()=>{
     return {
         scope:{
@@ -37,6 +38,25 @@ angular.module('myApp', []);
     };
 });
 
+ angular.module('myApp').directive('testVehicleView', ()=>{
+    return {
+        /**scope default is true */
+        scope:{
+            name:"@",
+            maker: "@",
+            model:"@",
+            year: "@", 
+            coche:"@"
+        },
+        templateUrl:'templates/vehicleView.html',
+        restrict: 'AE', 
+        controller: ($scope)=>{
+            console.log("testVehicleView_scopes values: "+
+            $scope.name+", "+$scope.maker+", "+$scope.year+", "+$scope.model);
+        }
+    };
+});
+
 angular.module('myApp')
         .controller('MainController', ['$scope','$interval', function($scope, $interval){
             var vm=this;
@@ -52,20 +72,6 @@ angular.module('myApp')
                 maker: "T",
                 model:"325i",
                 year: 2014
-            };
-
-            $scope.saveFirst=()=>{
-                alert("Saved First!");
-            };
-            $scope.saveSecond=()=>{
-                alert("Saved second!");
-            };
-            vm.randomNumbers=(count)=>{
-                console.log(count);
-                return [55,22,43,4,51];
-            };
-            vm.sequencialNumbers=()=>{
-                return [1,2,3,4,5];
             };
 
 }]);

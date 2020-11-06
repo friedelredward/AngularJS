@@ -33,4 +33,6 @@ replace directive elements in HTML markup
 ```
 > equal sign sets up 2way Databinding. scope and watcher ensures that if data bound is changing(input), gets throu the directive
 
-- We can __add dynamic functionality__ to the directive by __invoking outerscope functions__
+- We can __add dynamic functionality__ to the directive by __invoking outerscope(controller) functions__
+
+> passing strings to isolated scope
