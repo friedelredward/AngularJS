@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <style>
+    .testDiv{
+      width: 15em;
+      height: 5em;
+      background-color: aquamarine;
+    }
+    .testDiv div{
+      background-color: blueviolet;
+      width: 1em;
+      height:1em;
+      margin-left: 1em;
+      float:left;
+    }
+  </style>
+</head>
+<body ng-controller="MainController as main">
+    <input type="radio" name="first" ng-model="main.showFirst" ng-value="true" />
+    <input type="radio" name="first" ng-model="main.showFirst" ng-value="false" />
+
+    <div ng-show="main.showFirst">div Toggle</div>
+
+    <input type="radio" name="second" ng-model="main.showSecond" ng-value="true" />
+    <input type="radio" name="second" ng-model="main.showSecond" ng-value="false" />
+
+    <div ng-show="main.isSecondToggle()">div Toggle Con functin</div>
+    <!--Proving rootScope injection-->
+    <p>rootscope_usermodel: {{userModel.name}}-{{userModel.age}}</p>
+
+<div ng-controller="exampleController as example">
+  {{example.name}}
+    name:<input type="text" ng-model="example.nameInput" ng-change="example.doChange()"/>
+    {{example.message}}
+</div>
+<hr>
+<div ng-controller="exampleFinalController as exampleFinal">
+  watch mouse events
+    <div class="testDiv" ng-mousedown="exampleFinal.doMousedownCount()"
+      ng-mouseup="exampleFinal.doMouseupCount()"
+      ng-mouseover="exampleFinal.doMouseoverCount()"
+      ng-mouseenter="exampleFinal.doMouseenterCount()"
+      ng-mouseleave="exampleFinal.doMouseleaveCount()"
+      >
+      <div ng-mousemove="exampleFinal.doMousemove($event)"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <p>mousedownCount:{{exampleFinal.mousedownCount }}</p>
+    <p>mouseupCount:{{ exampleFinal.mouseupCount }}</p>
+    <p>mousemoveCount:{{ exampleFinal.mousemoveCount }}</p>
+    <p>mouseoverCount:{{ exampleFinal.mouseoverCount }}</p>
+    <p>mouseenterCount:{{ exampleFinal.mouseenterCount }}</p>
+    <p>mouseleaveCount:{{ exampleFinal.mouseleaveCount }}</p>
+    <p>mouse X// Y:{{ exampleFinal.mouseX }}// {{ exampleFinal.mouseY }}</p>
+
+</div>
+
+</body>
+</html>
