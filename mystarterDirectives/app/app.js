@@ -27,7 +27,14 @@ angular.module('myApp')
 angular.module('myApp')
         .controller('exampleController', [ function(){
 
-         this.mimensaje="mensaje desde Fathercontroller con THIS syntax /no scope"   
-         this.algo={
-            isActive:false};
+            var vm=this;
+            vm.name="Jsmith";
+            vm.nameInput="";
+            vm.message="";
+
+            vm.doChange= function(){
+                if(vm.nameInput==vm.name){
+                    vm.message="Bienvenido tu. cambio done";
+                }else{vm.message="";}
+            }
 }]);

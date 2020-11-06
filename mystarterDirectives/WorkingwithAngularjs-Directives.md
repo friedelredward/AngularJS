@@ -22,3 +22,4 @@
 
  - `ng-click="main.makeclick()"` directive and `ng-DblClick`
  - `ng-mousedown="domousedown($event)"` /// `ng-mouseup="domouseup($event)"`/// `ng-mousemove/mouseleave="doMouse($event)"` /// `ng-mouseenter/mouseleave="domousedown($event)"`
+ - `ng-change`

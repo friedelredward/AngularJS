@@ -28,7 +28,9 @@
     <p>rootscope_usermodel: {{userModel.name}}-{{userModel.age}}</p>
 
 <div ng-controller="exampleController as example">
-
+  {{example.name}}
+    name:<input type="text" ng-model="example.nameInput" ng-change="example.doChange()"/>
+    {{example.message}}
 </div>
 
 </body>
