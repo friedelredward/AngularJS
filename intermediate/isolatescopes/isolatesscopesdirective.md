@@ -27,7 +27,10 @@ replace directive elements in HTML markup
 ```
 
 ```html
-  /*binding sepparte scopes*/
+  /*binding separte scopes*/
   <test-Vehicle-V item1="item1"></test-Vehicle-V>  
-  <test-Vehicle-V item1="item2"></test-Vehicle-V>  
+  <test-Vehicle-V item1="item2"></test-Vehicle-V> 
 ```
+> equal sign sets up 2way Databinding. scope and watcher ensures that if data bound is changing(input), gets throu the directive
+
+- We can __add dynamic functionality__ to the directive by __invoking outerscope functions__

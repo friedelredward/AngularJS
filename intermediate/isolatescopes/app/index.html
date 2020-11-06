@@ -20,9 +20,25 @@
   /*binding sepparte scopes*/
   <test-Vehicle-V item1="item1"></test-Vehicle-V>  
   <test-Vehicle-V item1="item2"></test-Vehicle-V>  
+
+  <p>we bind come input to see changes.
+     it gets passed from 1 scope to the directive scope
+    <br><input type="text" ng-model="item1.name" placeholder="item1 name"/>
+  </p>
   
+<hr>
 
 <div ng-controller="exampleController as example">
+  <p>random rumbers:
+    <test-functions count="3"
+        on-save="example.saveFirst()"
+        generator-function="example.randomNumbers(count)"></test-functions>
+  </p>
+  <p>secuencial rumbers:
+    <test-functions count="5"
+        on-save="example.saveSecond()"
+        generator-function="example.sequencialNumbers(count)"></test-functions>
+  </p>
 
 </div>
 
