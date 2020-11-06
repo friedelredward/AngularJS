@@ -17,3 +17,5 @@
 - insert an HTML element using the ngBindHTML directive
 -use different bindings to create custom behaviors based on different mouse events
 </details>
+
+ > All thing(modles etc) attached to the rootScope are available across all scopes but not issolate scopes!¡¡CAREFULL with overriding(MASKED SCOPE)

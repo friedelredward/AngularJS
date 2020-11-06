@@ -1,6 +1,13 @@
 'use strict';
 
 angular.module('myApp', []);
+/**scope hyerarchy with rootScpe  this is available to all child scopes*/
+angular.module('myApp', []).run(function($rootScope){
+    $rootScope.userModel={
+        name: 'Jsmith',
+        age: 36
+    };
+});
 
 angular.module('myApp')
         .controller('MainController', ['$scope','$interval', function($scope, $interval){

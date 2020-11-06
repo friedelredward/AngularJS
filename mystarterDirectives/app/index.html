@@ -23,7 +23,9 @@
     <input type="radio" name="second" ng-model="main.showSecond" ng-value="true" />
     <input type="radio" name="second" ng-model="main.showSecond" ng-value="false" />
 
-    <div ng-show="main.isSecondToggle()">div Toggle Con function</div>
+    <div ng-show="main.isSecondToggle()">div Toggle Con functin</div>
+    <!--Proving rootScope injection-->
+    <p>usermodel: {{userModel.name}}-{{userModel.age}}</p>
 
 <div ng-controller="exampleController as example">
 
