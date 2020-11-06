@@ -7,7 +7,12 @@ angular.module('myApp')
             
             /**from convention we tag this as vm */
             var vm=this;
-            vm.nombre="jhondoe";
+            vm.showFirst=true;
+            vm.showSecond=false;
+
+            vm.isSecondToggle=function(){
+                return vm.showSecond
+            }
            
 }]);
 

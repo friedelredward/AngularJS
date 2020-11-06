@@ -15,6 +15,15 @@
   <script src="app.js"></script>
 </head>
 <body ng-controller="MainController as main">
+    <input type="radio" name="first" ng-model="main.showFirst" ng-value="true" />
+    <input type="radio" name="first" ng-model="main.showFirst" ng-value="false" />
+
+    <div ng-show="main.showFirst">div Toggle</div>
+
+    <input type="radio" name="second" ng-model="main.showSecond" ng-value="true" />
+    <input type="radio" name="second" ng-model="main.showSecond" ng-value="false" />
+
+    <div ng-show="main.isSecondToggle()">div Toggle Con function</div>
 
 <div ng-controller="exampleController as example">
 
