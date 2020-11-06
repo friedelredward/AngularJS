@@ -23,3 +23,4 @@
  - `ng-click="main.makeclick()"` directive and `ng-DblClick`
  - `ng-mousedown="domousedown($event)"` /// `ng-mouseup="domouseup($event)"`/// `ng-mousemove/mouseleave="doMouse($event)"` /// `ng-mouseenter/mouseleave="domousedown($event)"`
  - `ng-change`
+ - `ng-bind-html` with the sanitize package and we can iject a var like `$sce.trustAsHtml('html code');` and `{{ }}`

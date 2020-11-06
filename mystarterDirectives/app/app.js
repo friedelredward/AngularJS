@@ -38,3 +38,38 @@ angular.module('myApp')
                 }else{vm.message="";}
             }
 }]);
+angular.module('myApp')
+        .controller('exampleFinalController', [ function(){
+
+            var vm=this;
+
+            vm.mousedownCount=0;
+            vm.mouseupCount=0;
+            vm.mouseoverCount=0;
+            vm.mouseenterCount=0;
+            vm.mouseleaveCount=0;
+            vm.mouseX=0;
+            vm.mouseY=0;
+
+            vm.doMousedownCount=function(){
+                vm.mousedownCount++;
+            }
+            vm.doMouseupCount=function(){
+                vm.mouseupCount++;
+            }
+            vm.doMouseoverCount=function(){
+                vm.mouseoverCount++;
+            }
+            vm.doMouseenterCount=function(){
+                vm.mouseenterCount++;
+            }
+            vm.doMouseleaveCount=function(){
+                vm.mouseleaveCount++;
+            }
+
+            vm.doMousemove=function(event){
+                console.log("Mouse moved");
+                vm.mouseY= event.offsetY;
+                vm.mouseX= event.offsetX;
+            };
+}]);

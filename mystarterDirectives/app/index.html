@@ -13,6 +13,20 @@
   <link rel="stylesheet" href="app.css">
   <script src="lib/angular/angular.js"></script>
   <script src="app.js"></script>
+  <style>
+    .testDiv{
+      width: 15em;
+      height: 5em;
+      background-color: aquamarine;
+    }
+    .testDiv div{
+      background-color: blueviolet;
+      width: 1em;
+      height:1em;
+      margin-left: 1em;
+      float:left;
+    }
+  </style>
 </head>
 <body ng-controller="MainController as main">
     <input type="radio" name="first" ng-model="main.showFirst" ng-value="true" />
@@ -31,6 +45,30 @@
   {{example.name}}
     name:<input type="text" ng-model="example.nameInput" ng-change="example.doChange()"/>
     {{example.message}}
+</div>
+<hr>
+<div ng-controller="exampleFinalController as exampleFinal">
+  watch mouse events
+    <div class="testDiv" ng-mousedown="exampleFinal.doMousedownCount()"
+      ng-mouseup="exampleFinal.doMouseupCount()"
+      ng-mouseover="exampleFinal.doMouseoverCount()"
+      ng-mouseenter="exampleFinal.doMouseenterCount()"
+      ng-mouseleave="exampleFinal.doMouseleaveCount()"
+      >
+      <div ng-mousemove="exampleFinal.doMousemove($event)"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <p>mousedownCount:{{exampleFinal.mousedownCount }}</p>
+    <p>mouseupCount:{{ exampleFinal.mouseupCount }}</p>
+    <p>mousemoveCount:{{ exampleFinal.mousemoveCount }}</p>
+    <p>mouseoverCount:{{ exampleFinal.mouseoverCount }}</p>
+    <p>mouseenterCount:{{ exampleFinal.mouseenterCount }}</p>
+    <p>mouseleaveCount:{{ exampleFinal.mouseleaveCount }}</p>
+    <p>mouse X// Y:{{ exampleFinal.mouseX }}// {{ exampleFinal.mouseY }}</p>
+
 </div>
 
 </body>
