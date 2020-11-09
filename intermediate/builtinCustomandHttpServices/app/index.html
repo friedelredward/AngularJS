@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="app.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-cookies.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainController as main">
+  <h1>Built-ins and<span class="badge badge-warning">Services</span></h1>
+  <hr>
+  <div ng-controller="TimeoutController as exmpl">
+    <h4> timeout example </h4>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary" ng-click="exmpl.startTimeout()">Start timeout</button>
+      <button type="button" class="btn btn-info" ng-click="exmpl.cancelTimeout()">End timeout</button>
+      <p> {{ exmpl.message }}</p>
+
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">ms</span>
+      </div>
+      <input type="text" class="form-control" ng-model="exmpl.delay" placeholder="miliseconds"
+        aria-describedby="basic-addon1">
+    </div>
+
+  </div>
+  <hr>
+  <div ng-controller="CacheController as cacheC" class="container">
+    <h4> cache example </h4>
+    <p>cache:
+      <ul>
+        <li ng-repeat="(key, value) in cacheC.cache.info()">
+          {{key}} : {{ value}}
+        </li>
+      </ul>
+    </p>
+    <p>
+      <ul >
+        <li class="d-inline " ng-repeat="key in cacheC.keys">
+          {{key}} : {{ cacheC.cache.get(key)}} ||
+        </li>
+      </ul>
+    </p>
+    <p>
+      <input type="text" class="form-control" ng-model="cacheC.ItemKey" placeholder="Key"
+      aria-describedby="basic-addon1">
+      <input type="text" class="form-control" ng-model="cacheC.ItemValue" placeholder="Value"
+      aria-describedby="basic-addon1">
+      <button type="button" class="btn btn-primary" ng-click="cacheC.addItem(cacheC.ItemKey, cacheC.ItemValue)">Add Item to cache</button>
+      <hr>
+      <input type="text" class="form-control col-10" ng-model="cacheC.removeItemKey" placeholder="Item Key"
+      aria-describedby="basic-addon1">
+      <button type="button" class="btn btn-danger" ng-click="cacheC.removeItem(cacheC.removeItemKey)">Remove Item </button>
+      <input type="text" class="form-control col-3" ng-model="cacheC.getItemKey" placeholder="Key"
+      aria-describedby="basic-addon1">
+      <input type="text" disabled value="Value:{{ cacheC.curentItem }}" />
+      <button type="button" class="btn btn-info" ng-click="cacheC.getItem(cacheC.getItemKey)">Get Item </button>
+      
+    </p>
+  </div>
+  <hr>
+  <div ng-controller="ErrorHandlerController as errorsH" class="container">
+    <div class="row">
+      <p class="col-12 text-center">
+      <button type="button" class="btn btn-warning" ng-click="errorsH.throwBasicError()">Throw Error</button>
+
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div ng-controller="MyCookieController as myCookies" class="container">
+    <div class="row">
+      <h4>Cookies; === same as cache!</h4>
+      <p class="col-12 text-center">
+        <details>
+          <summary>
+            check
+          </summary>
+          <p>Cookies:
+          <p>
+            <ul >
+              <li class="d-inline " ng-repeat="key in myCookies.keys">
+                {{key}} : {{ myCookies.getCookieValue(key)}} ||
+              </li>
+            </ul>
+          </p>
+          <p>
+            <input type="text" class="form-control" ng-model="myCookies.ItemKey" placeholder="Key"
+            aria-describedby="basic-addon1">
+            <input type="text" class="form-control" ng-model="myCookies.ItemValue" placeholder="Value"
+            aria-describedby="basic-addon1">
+            <button type="button" class="btn btn-info" ng-click="myCookies.addItem(myCookies.ItemKey, myCookies.ItemValue)">Add to cookies</button>
+            <hr>
+            <input type="text" class="form-control col-10" ng-model="myCookies.removeItemKey" placeholder="Item Key"
+            aria-describedby="basic-addon1">
+            <button type="button" class="btn btn-warning" ng-click="myCookies.removeItem(myCookies.removeItemKey)">Remove cookie </button>
+            <input type="text" class="form-control col-3" ng-model="myCookies.getItemKey" placeholder="Key"
+            aria-describedby="basic-addon1">
+            <input type="text" disabled value="Value:{{ myCookies.curentItem }}" />
+            <button type="button" class="btn btn-info" ng-click="myCookies.getItem(myCookies.getItemKey)">Get cookie </button>
+            
+          </p>
+      </details>
+      
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div ng-controller="FatherServiceController as servicefather" class="container border border-primary">
+    <h2 class="text-center ">SERVICES</h2>
+    <p>model from service:</p>
+    <p><input type="text" ng-model="servicefather.model.user.name"/>
+      <button type="button" class="btn btn-info" ng-click="servicefather.model.sayHello()">Service()</button>
+    </p>
+    <div class="row text-center flex">
+      <div ng-controller="FirstChildServiceController as first" class="col border border-info">
+        first child
+        <p>local edit:<input type="text" ng-model="first.user1.name"/></p>
+        <p>firstchildUser name: {{first.user1.name}}</p>
+        <p>SeconddUser name: {{first.user2.name}}</p>
+        <p>service inherited(Shared model) name: {{ first.model.user.name}}</p>
+        <p>
+          <button type="button" class="btn btn-success" ng-click="first.model.sayHello()">Service()</button>
+        </p>
+      </div>
+      <div ng-controller="SecondChildServiceController as second" class="col border border-success">
+        second child
+        <p>local edit:<input type="text" ng-model="second.user2.name"/></p>
+        <p>firstchildUser name: {{first.user1.name}}</p>
+        <p>SeconddUser name: {{second.user2.name}}</p>
+        <p>service inherited(Shared model) name: {{ second.model.user.name}}</p>
+        <p>
+          <button type="button" class="btn btn-success" ng-click="second.model.sayHello()">Service()</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <hr>
+</body>
+
+</html>

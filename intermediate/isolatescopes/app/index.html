@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="MainController as main">
+<h4>Automatic scope binding (father to child)</h4>
+  <test-Vehicle-V></test-Vehicle-V>  
+  /*binding sepparte scopes*/
+  <test-Vehicle-V item1="item1"></test-Vehicle-V>  
+  <test-Vehicle-V item1="item2"></test-Vehicle-V>  
+
+  <p>we bind come input to see changes.
+     it gets passed from 1 scope to the directive scope
+    <br><input type="text" ng-model="item1.name" placeholder="item1 name"/>
+  </p>
+  
+<hr>
+<h4>passing strings to isolated scopes</h4>
+{{main.item1}}-{{main.item2}}
+observar con el objeto es jason y no puede
+    <test-Vehicle-View name="asdf"
+      year="123"
+      maker="test"
+      model="test1"
+      coche="{{item1}}"></test-Vehicle-View>
+    <test-Vehicle-View name="2"
+      year="test2"
+      maker="test2"
+      model="test2"
+      coche="{{item2}}"></test-Vehicle-View>
+<hr>
+<div ng-controller="exampleController as example">
+  <p>random rumbers:
+    <test-functions count="3"
+        on-save="example.saveFirst()"
+        generator-function="example.randomNumbers(count)"></test-functions>
+  </p>
+  <p>secuencial rumbers:
+    <test-functions count="5"
+        on-save="example.saveSecond()"
+        generator-function="example.sequencialNumbers(count)"></test-functions>
+  </p>
+
+</div>
+
+</body>
+</html>
