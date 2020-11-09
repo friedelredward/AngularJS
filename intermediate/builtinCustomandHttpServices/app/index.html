@@ -17,8 +17,10 @@
 
   <link rel="stylesheet" href="app.css">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="lib/angular/angular.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-cookies.js"></script>
   <script src="app.js"></script>
 </head>
 
@@ -85,7 +87,44 @@
 
       </p>
     </div>
-
+  </div>
+  <hr>
+  <div ng-controller="MyCookieController as myCookies" class="container">
+    <div class="row">
+      <h4>Cookies; === same as cache!</h4>
+      <p class="col-12 text-center">
+        <details>
+          <summary>
+            check
+          </summary>
+          <p>Cookies:
+          <p>
+            <ul >
+              <li class="d-inline " ng-repeat="key in myCookies.keys">
+                {{key}} : {{ myCookies.getCookieValue(key)}} ||
+              </li>
+            </ul>
+          </p>
+          <p>
+            <input type="text" class="form-control" ng-model="myCookies.ItemKey" placeholder="Key"
+            aria-describedby="basic-addon1">
+            <input type="text" class="form-control" ng-model="myCookies.ItemValue" placeholder="Value"
+            aria-describedby="basic-addon1">
+            <button type="button" class="btn btn-info" ng-click="myCookies.addItem(myCookies.ItemKey, myCookies.ItemValue)">Add to cookies</button>
+            <hr>
+            <input type="text" class="form-control col-10" ng-model="myCookies.removeItemKey" placeholder="Item Key"
+            aria-describedby="basic-addon1">
+            <button type="button" class="btn btn-warning" ng-click="myCookies.removeItem(myCookies.removeItemKey)">Remove cookie </button>
+            <input type="text" class="form-control col-3" ng-model="myCookies.getItemKey" placeholder="Key"
+            aria-describedby="basic-addon1">
+            <input type="text" disabled value="Value:{{ myCookies.curentItem }}" />
+            <button type="button" class="btn btn-info" ng-click="myCookies.getItem(myCookies.getItemKey)">Get cookie </button>
+            
+          </p>
+      </details>
+      
+      </p>
+    </div>
   </div>
 </body>
 

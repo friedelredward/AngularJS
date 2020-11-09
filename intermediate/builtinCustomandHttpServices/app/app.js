@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('myApp', []);
+angular.module('myApp', ['ngCookies']);
+/**OJO !! Have to inject it */
+
 
 angular.module('myApp')
         .controller('MainController', ['$scope','$interval','$timeout', function($scope, $interval, $timeout){
@@ -64,7 +66,7 @@ angular.module('myApp')
 }]);
 
 angular.module('myApp')
-        .controller('ErrorHandlerController', ['$cacheFactory', function($cacheFactory){
+        .controller('ErrorHandlerController', [function(){
             var vm=this;//as sintax
 
             vm.throwBasicError= ()=>{
@@ -72,6 +74,7 @@ angular.module('myApp')
             };
             /**we override the default exception handler */     
 }]);/*** WE OVERRIDE THE default with the factory method */
+/*
 angular.module('myApp')
         .factory('$exceptionHandler', function(){
            return function(exception, cause){
@@ -79,3 +82,32 @@ angular.module('myApp')
                 console.log("Dayum SOmething went bad!");
            };     
 });
+*/
+/**OJO !! Have to inject it */
+// angular.module('myApp', ['ngCookies']);
+angular.module('myApp')
+        .controller('MyCookieController', ['$cookies', function($cookies){
+            var vm=this;//as sintax
+            vm.keys=[];
+
+            vm.addItem=(itemKey, itemValue)=>{
+                vm.keys.push(itemKey);
+                $cookies.put(itemKey, itemValue);
+            };
+            vm.getItem=(itemKey)=>{
+                vm.curentItem=  $cookies.get(itemKey);
+            };
+            vm.getCookieValue=(key)=>{
+               return $cookies.get(key);
+            };
+            vm.removeItem=(itemKey)=>{
+                //we remove the key from our keys array
+                vm.keys.filter((key)=>{
+                    return key!== itemKey;
+                });
+                //also from cache
+                $cookies.remove(itemKey);
+            };
+
+                 
+}]);
