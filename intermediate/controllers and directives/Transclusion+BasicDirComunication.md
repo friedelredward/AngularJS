@@ -1,5 +1,5 @@
 # AngularJs
-## Working with Controllers & Directives
+## Working with Controllers & Directives (Comunication + Transclusion)
 <details>
     <summary>Contents</summary>
    
