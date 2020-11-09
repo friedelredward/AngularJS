@@ -41,6 +41,41 @@
       <input type="text" class="form-control" ng-model="exmpl.delay" placeholder="miliseconds"
         aria-describedby="basic-addon1">
     </div>
+
+  </div>
+  <hr>
+  <div ng-controller="CacheController as cacheC" class="container">
+    <h4> cache example </h4>
+    <p>cache:
+      <ul>
+        <li ng-repeat="(key, value) in cacheC.cache.info()">
+          {{key}} : {{ value}}
+        </li>
+      </ul>
+    </p>
+    <p>
+      <ul >
+        <li class="d-inline " ng-repeat="key in cacheC.keys">
+          {{key}} : {{ cacheC.cache.get(key)}} ||
+        </li>
+      </ul>
+    </p>
+    <p>
+      <input type="text" class="form-control" ng-model="cacheC.ItemKey" placeholder="Key"
+      aria-describedby="basic-addon1">
+      <input type="text" class="form-control" ng-model="cacheC.ItemValue" placeholder="Value"
+      aria-describedby="basic-addon1">
+      <button type="button" class="btn btn-primary" ng-click="cacheC.addItem(cacheC.ItemKey, cacheC.ItemValue)">Add Item to cache</button>
+      <hr>
+      <input type="text" class="form-control col-10" ng-model="cacheC.removeItemKey" placeholder="Item Key"
+      aria-describedby="basic-addon1">
+      <button type="button" class="btn btn-danger" ng-click="cacheC.removeItem(cacheC.removeItemKey)">Remove Item </button>
+      <input type="text" class="form-control col-3" ng-model="cacheC.getItemKey" placeholder="Key"
+      aria-describedby="basic-addon1">
+      <input type="text" disabled value="Value:{{ cacheC.curentItem }}" />
+      <button type="button" class="btn btn-info" ng-click="cacheC.getItem(cacheC.getItemKey)">Get Item </button>
+      
+    </p>
     <hr>
   </div>
 

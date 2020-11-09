@@ -7,6 +7,7 @@ angular.module('myApp')
             var vm=this;//as sintax
 
 }]);
+
 angular.module('myApp')
         .controller('TimeoutController', ['$timeout', function($timeout){
             var vm=this;//as sintax
@@ -38,3 +39,27 @@ angular.module('myApp')
             };
 }]);
 
+
+angular.module('myApp')
+        .controller('CacheController', ['$cacheFactory', function($cacheFactory){
+            var vm=this;//as sintax
+            vm.keys=[];
+            /**we intatiate */
+            vm.cache= $cacheFactory('testCache');
+
+            vm.addItem=(itemKey, itemValue)=>{
+                vm.keys.push(itemKey);
+                vm.cache.put(itemKey, itemValue);
+            };
+            vm.getItem=(itemKey)=>{
+                vm.curentItem= vm.cache.get(itemKey);
+            };
+            vm.removeItem=(itemKey)=>{
+                //we remove the key from our keys array
+                vm.keys.filter((key)=>{
+                    return key!== itemKey;
+                });
+                //also from cache
+                vm.cache.remove(itemKey);
+            };
+}]);
