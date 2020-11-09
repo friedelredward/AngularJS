@@ -12,5 +12,5 @@
 - work with browser events in directives
 - use the nglf directive(*REMOVES from DOM*): https://hpe.percipio.com/courses/932129fd-14c0-11e7-92d9-0242c0a80b07/videos/93217812-14c0-11e7-92d9-0242c0a80b07
 - use the ngList directive(TO _KEEP Array Type to ARRAY_)+ change *delimiter( , )*
-- set up and communicate with both directives and nested directives
+- set up and communicate with both directives and nested directives: https://hpe.percipio.com/courses/932129fd-14c0-11e7-92d9-0242c0a80b07/videos/93217814-14c0-11e7-92d9-0242c0a80b07
 </details>
