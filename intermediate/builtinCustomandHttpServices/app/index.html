@@ -76,9 +76,17 @@
       <button type="button" class="btn btn-info" ng-click="cacheC.getItem(cacheC.getItemKey)">Get Item </button>
       
     </p>
-    <hr>
   </div>
+  <hr>
+  <div ng-controller="ErrorHandlerController as errorsH" class="container">
+    <div class="row">
+      <p class="col-12 text-center">
+      <button type="button" class="btn btn-warning" ng-click="errorsH.throwBasicError()">Throw Error</button>
 
+      </p>
+    </div>
+
+  </div>
 </body>
 
 </html>

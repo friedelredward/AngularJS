@@ -39,7 +39,6 @@ angular.module('myApp')
             };
 }]);
 
-
 angular.module('myApp')
         .controller('CacheController', ['$cacheFactory', function($cacheFactory){
             var vm=this;//as sintax
@@ -63,3 +62,20 @@ angular.module('myApp')
                 vm.cache.remove(itemKey);
             };
 }]);
+
+angular.module('myApp')
+        .controller('ErrorHandlerController', ['$cacheFactory', function($cacheFactory){
+            var vm=this;//as sintax
+
+            vm.throwBasicError= ()=>{
+                throw new Error("This is my basic error");
+            };
+            /**we override the default exception handler */     
+}]);/*** WE OVERRIDE THE default with the factory method */
+angular.module('myApp')
+        .factory('$exceptionHandler', function(){
+           return function(exception, cause){
+                alert("Opps. Exception thrown");
+                console.log("Dayum SOmething went bad!");
+           };     
+});
