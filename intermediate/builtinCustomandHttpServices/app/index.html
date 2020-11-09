@@ -2,7 +2,10 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,22 +21,29 @@
   <script src="lib/angular/angular.js"></script>
   <script src="app.js"></script>
 </head>
-<body ng-controller="MainController as main">
-<h4> timeout example </h4>
-<div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-primary" ng-click="main.startTimeout()">Start timeout</button>
-  <button type="button" class="btn btn-info" ng-click="main.cancelTimeout()">End timeout</button>
-  <p> {{ main.message }}</p>
 
-</div>
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" >ms</span>
-  </div>
-  <input type="text" class="form-control"
-    ng-model="main.delay" placeholder="miliseconds"  aria-describedby="basic-addon1">
-</div>
+<body ng-controller="MainController as main">
+  <h1>Built-ins <span class="badge badge-warning">Services</span></h1>
+<h2 class=></h2>
   <hr>
+  <div ng-controller="TimeoutController as exmpl">
+    <h4> timeout example </h4>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary" ng-click="exmpl.startTimeout()">Start timeout</button>
+      <button type="button" class="btn btn-info" ng-click="exmpl.cancelTimeout()">End timeout</button>
+      <p> {{ exmpl.message }}</p>
+
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">ms</span>
+      </div>
+      <input type="text" class="form-control" ng-model="exmpl.delay" placeholder="miliseconds"
+        aria-describedby="basic-addon1">
+    </div>
+    <hr>
+  </div>
 
 </body>
+
 </html>

@@ -5,6 +5,11 @@ angular.module('myApp', []);
 angular.module('myApp')
         .controller('MainController', ['$scope','$interval','$timeout', function($scope, $interval, $timeout){
             var vm=this;//as sintax
+
+}]);
+angular.module('myApp')
+        .controller('TimeoutController', ['$timeout', function($timeout){
+            var vm=this;//as sintax
             vm.message="No timeout set";
             vm.delay= 2000;
              var timeoutPromise= null;
@@ -13,7 +18,7 @@ angular.module('myApp')
                 vm.message='';
                 //**OJO! */
                 vm.cancelTimeout();
-                vm.message +="Startting new timout...";
+                vm.message +="Starting new timeout...";
 
                 timeoutPromise=$timeout((data)=>{
                     vm.message ="Timout complete; with data sent: "+data;
@@ -31,9 +36,5 @@ angular.module('myApp')
                     vm.message="canceled Timeout."
                 }
             };
-
-
-
-
 }]);
 
