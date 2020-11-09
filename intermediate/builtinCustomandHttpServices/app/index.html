@@ -10,13 +10,30 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="app.css">
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="lib/angular/angular.js"></script>
   <script src="app.js"></script>
 </head>
 <body ng-controller="MainController as main">
-<h4> </h4>
-  
+<h4> timeout example </h4>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-primary" ng-click="main.startTimeout()">Start timeout</button>
+  <button type="button" class="btn btn-info" ng-click="main.cancelTimeout()">End timeout</button>
+  <p> {{ main.message }}</p>
+
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" >ms</span>
+  </div>
+  <input type="text" class="form-control"
+    ng-model="main.delay" placeholder="miliseconds"  aria-describedby="basic-addon1">
+</div>
+  <hr>
 
 </body>
 </html>

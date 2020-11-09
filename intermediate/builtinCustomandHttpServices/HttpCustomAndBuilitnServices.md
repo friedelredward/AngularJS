@@ -4,7 +4,7 @@
     <summary>Contents</summary>
    
 - use the `$anchorScroll` service
-- use the `$locale` service
+- use the `$locale` service: we have to attach files(proj dir /i18n) + __html__ src tags **[Remember 3rd party libs to change locale on the fly!!**]
 - use the `$timeout` service
 - use the `$parse` service
 - use the` $compile` service
