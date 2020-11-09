@@ -1,13 +1,45 @@
 'use strict';
-
-angular.module('myApp', ['ngCookies']);
 /**OJO !! Have to inject it */
+angular.module('myApp', ['ngCookies']);
 
-
+/**custom service */
+/*
 angular.module('myApp')
-        .controller('MainController', ['$scope','$interval','$timeout', function($scope, $interval, $timeout){
+        .service('MainController', ['$scope','$interval','$timeout', function($scope, $interval, $timeout){
             var vm=this;//as sintax
+}]);
+*/
+ angular.module('myApp')
+         .factory('AppModel', function(){
+            var model={};//creates objet to return it
+        
+             model.user={
+                name:"jhon Doe From ServiceFactory"
+             };
+            model.sayHello= function(){
+             alert("Hellow from service-Factory");
+            };
 
+            return model;
+});
+/*
+ angular.module('myApp')
+         .service('AppModel', function(){
+             this.user={
+                 name:"jhon Doe From Service"
+             };
+             this.sayHello= function(){
+                 alert("Hellow from service");
+             };
+});
+*/
+
+/**
+ * Controllers */
+angular.module('myApp')
+        .controller('MainController', ['AppModel','$scope','$interval','$timeout', function(AppModel, $scope, $interval, $timeout){
+            var vm=this;//as sintax
+            vm.model=AppModel;
 }]);
 
 angular.module('myApp')
@@ -107,7 +139,30 @@ angular.module('myApp')
                 });
                 //also from cache
                 $cookies.remove(itemKey);
-            };
+            };          
+}]);
 
-                 
+/**service 2 ways.. as a service and with factory ; check declaration */
+angular.module('myApp')
+        .controller('FatherServiceController', ['AppModel', function(AppModel){
+            var vm=this;//as sintax
+            vm.model= AppModel;
+}]);
+angular.module('myApp')
+        .controller('FirstChildServiceController', ['AppModel', function(AppModel){
+            var vm=this;//as sintax
+            vm.model= AppModel;
+
+            vm.user1={/**some local info */
+                name:"JhonDoe1 from fristChild"
+            };
+}]);
+angular.module('myApp')
+        .controller('SecondChildServiceController', ['AppModel', function(AppModel){
+            var vm=this;//as sintax
+            vm.model= AppModel;
+            
+            vm.user2={
+                name:"Jane Doe from Second"
+            };
 }]);

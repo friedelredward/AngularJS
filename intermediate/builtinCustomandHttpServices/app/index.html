@@ -25,8 +25,7 @@
 </head>
 
 <body ng-controller="MainController as main">
-  <h1>Built-ins <span class="badge badge-warning">Services</span></h1>
-<h2 class=></h2>
+  <h1>Built-ins and<span class="badge badge-warning">Services</span></h1>
   <hr>
   <div ng-controller="TimeoutController as exmpl">
     <h4> timeout example </h4>
@@ -126,6 +125,37 @@
       </p>
     </div>
   </div>
+  <hr>
+  <div ng-controller="FatherServiceController as servicefather" class="container border border-primary">
+    <h2 class="text-center ">SERVICES</h2>
+    <p>model from service:</p>
+    <p><input type="text" ng-model="servicefather.model.user.name"/>
+      <button type="button" class="btn btn-info" ng-click="servicefather.model.sayHello()">Service()</button>
+    </p>
+    <div class="row text-center flex">
+      <div ng-controller="FirstChildServiceController as first" class="col border border-info">
+        first child
+        <p>local edit:<input type="text" ng-model="first.user1.name"/></p>
+        <p>firstchildUser name: {{first.user1.name}}</p>
+        <p>SeconddUser name: {{first.user2.name}}</p>
+        <p>service inherited(Shared model) name: {{ first.model.user.name}}</p>
+        <p>
+          <button type="button" class="btn btn-success" ng-click="first.model.sayHello()">Service()</button>
+        </p>
+      </div>
+      <div ng-controller="SecondChildServiceController as second" class="col border border-success">
+        second child
+        <p>local edit:<input type="text" ng-model="second.user2.name"/></p>
+        <p>firstchildUser name: {{first.user1.name}}</p>
+        <p>SeconddUser name: {{second.user2.name}}</p>
+        <p>service inherited(Shared model) name: {{ second.model.user.name}}</p>
+        <p>
+          <button type="button" class="btn btn-success" ng-click="second.model.sayHello()">Service()</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <hr>
 </body>
 
 </html>
