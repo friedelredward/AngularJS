@@ -25,9 +25,11 @@ angular.module('myApp')
 /**
  * Controllers */
 angular.module('myApp')
-    .controller('WelcomeController', [ function() {
+    .controller('WelcomeController', ['$route', function($route) {
         var vm = this;//as sintax
         vm.details = "Hello From WELCOME";
+        /**getting params from URL STRING (route) */
+        vm.queryStringParams= $route.current.params;
 }]);
 
 angular.module('myApp')

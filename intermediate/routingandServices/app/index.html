@@ -34,10 +34,16 @@
   <h2>Routes will load here</h2>
   <div class="container card" ng-view></div>
   <details>
-    <summary>links + params</summary>
+    <summary>links + route params with <code>$routeParams</code></summary>
     
     <a href="#!product/1" class="btn btn-secondary">Go product1</a>
     <a href="#!product/2" class="btn btn-secondary">Go product2</a>
+</details>
+<details>
+  <summary>links + query (string) params.2 with <code>$route</code></summary>
+  
+  <a href="#!welcome?firstName=nombre&lastName=asdasd" class="btn btn-secondary">Go 1</a>
+  <a href="#!welcome?userId=asdasdaso21232123123asd" class="btn btn-secondary">Go 2</a>
 </details>
   
 
