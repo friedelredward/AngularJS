@@ -7,7 +7,11 @@ angular.module('myApp')
         $routeProvider.when('/welcome', {
             templateUrl:'/templates/welcome.html',
             controller: 'WelcomeController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            exampleData:{
+                algo1: "asdasdsd",
+                algo2: "asdasdas"
+            }
             
         })
         .when("/about", {
@@ -34,6 +38,8 @@ angular.module('myApp')
         vm.reload=()=>{
             $route.reload();
         };
+        /**routes properties/data */
+        vm.exmplData= $route.current.exampleData;
 }]);
 
 angular.module('myApp')
