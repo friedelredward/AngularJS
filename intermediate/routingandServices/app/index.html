@@ -64,6 +64,15 @@
   </div>
 
 </details>
+<details>
+  <summary>filters as service <code>$filter</code>+ dynamicly filtering input</summary>
+  <div ng-controller="BasicFilterController as basicFilter" >
+      <p>basic filetring using from html: {{ basicFilter.randomMessage| dashes }}</p>
+      <p>already filtered fron JS value: {{ basicFilter.codeFilteredValue }}</p>
+      <p>dynamic filtering: <input type="text" ng-model="basicFilter.inputValue" 
+        ng-change="basicFilter.aplyFilter()"/>:: {{ basicFilter.parsedValue }}</p>
+  </div>
+</details>
   
 
 </body>

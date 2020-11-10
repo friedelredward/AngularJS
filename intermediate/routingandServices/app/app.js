@@ -3,6 +3,13 @@
 angular.module('myApp', ['ngRoute']);
 
 angular.module('myApp')
+    .filter('dashes', [ () =>{
+        return (value)=>{
+            return value.replace(/\s/g, '-');
+        };   
+}]);
+
+angular.module('myApp')
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/welcome', {
             templateUrl:'/templates/welcome.html',
@@ -25,6 +32,8 @@ angular.module('myApp')
             controllerAs: 'vm'
         }).otherwise({ redirectTo: '/'});//default route
 }]);
+
+
 
 /**
  * Controllers */
@@ -81,5 +90,18 @@ angular.module('myApp')
             $log.warn(data);
             $log.debug(data);
         };
+}]);
 
+angular.module('myApp')
+    .controller('BasicFilterController', ['$filter', function($filter) {
+        var vm = this;//as sintax
+
+        var dashes= $filter('dashes');
+        vm.randomMessage="Thjis is a basic string to prove filter";
+        vm.codeFilteredValue= dashes(vm.randomMessage);
+
+        vm.aplyFilter=()=>{
+            vm.parsedValue= dashes(vm.inputValue);
+        };
+        
 }]);
