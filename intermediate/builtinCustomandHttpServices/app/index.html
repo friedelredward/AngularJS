@@ -48,41 +48,43 @@
   <div ng-controller="CacheController as cacheC" class="container">
     <h4> cache example </h4>
     <p>cache:
-      <ul>
-        <li ng-repeat="(key, value) in cacheC.cache.info()">
-          {{key}} : {{ value}}
-        </li>
-      </ul>
+    <ul>
+      <li ng-repeat="(key, value) in cacheC.cache.info()">
+        {{key}} : {{ value}}
+      </li>
+    </ul>
     </p>
     <p>
-      <ul >
-        <li class="d-inline " ng-repeat="key in cacheC.keys">
-          {{key}} : {{ cacheC.cache.get(key)}} ||
-        </li>
-      </ul>
+    <ul>
+      <li class="d-inline " ng-repeat="key in cacheC.keys">
+        {{key}} : {{ cacheC.cache.get(key)}} ||
+      </li>
+    </ul>
     </p>
     <p>
       <input type="text" class="form-control" ng-model="cacheC.ItemKey" placeholder="Key"
-      aria-describedby="basic-addon1">
+        aria-describedby="basic-addon1">
       <input type="text" class="form-control" ng-model="cacheC.ItemValue" placeholder="Value"
-      aria-describedby="basic-addon1">
-      <button type="button" class="btn btn-primary" ng-click="cacheC.addItem(cacheC.ItemKey, cacheC.ItemValue)">Add Item to cache</button>
+        aria-describedby="basic-addon1">
+      <button type="button" class="btn btn-primary" ng-click="cacheC.addItem(cacheC.ItemKey, cacheC.ItemValue)">Add Item
+        to cache</button>
       <hr>
       <input type="text" class="form-control col-10" ng-model="cacheC.removeItemKey" placeholder="Item Key"
-      aria-describedby="basic-addon1">
-      <button type="button" class="btn btn-danger" ng-click="cacheC.removeItem(cacheC.removeItemKey)">Remove Item </button>
+        aria-describedby="basic-addon1">
+      <button type="button" class="btn btn-danger" ng-click="cacheC.removeItem(cacheC.removeItemKey)">Remove Item
+      </button>
       <input type="text" class="form-control col-3" ng-model="cacheC.getItemKey" placeholder="Key"
-      aria-describedby="basic-addon1">
+        aria-describedby="basic-addon1">
       <input type="text" disabled value="Value:{{ cacheC.curentItem }}" />
       <button type="button" class="btn btn-info" ng-click="cacheC.getItem(cacheC.getItemKey)">Get Item </button>
-      
+
     </p>
   </div>
   <hr>
   <div ng-controller="ErrorHandlerController as errorsH" class="container">
     <div class="row">
       <p class="col-12 text-center">
-      <button type="button" class="btn btn-warning" ng-click="errorsH.throwBasicError()">Throw Error</button>
+        <button type="button" class="btn btn-warning" ng-click="errorsH.throwBasicError()">Throw Error</button>
 
       </p>
     </div>
@@ -92,36 +94,39 @@
     <div class="row">
       <h4>Cookies; === same as cache!</h4>
       <p class="col-12 text-center">
-        <details>
-          <summary>
-            check
-          </summary>
-          <p>Cookies:
-          <p>
-            <ul >
-              <li class="d-inline " ng-repeat="key in myCookies.keys">
-                {{key}} : {{ myCookies.getCookieValue(key)}} ||
-              </li>
-            </ul>
-          </p>
-          <p>
-            <input type="text" class="form-control" ng-model="myCookies.ItemKey" placeholder="Key"
+      <details>
+        <summary>
+          check
+        </summary>
+        <p>Cookies:
+        <p>
+        <ul>
+          <li class="d-inline " ng-repeat="key in myCookies.keys">
+            {{key}} : {{ myCookies.getCookieValue(key)}} ||
+          </li>
+        </ul>
+        </p>
+        <p>
+          <input type="text" class="form-control" ng-model="myCookies.ItemKey" placeholder="Key"
             aria-describedby="basic-addon1">
-            <input type="text" class="form-control" ng-model="myCookies.ItemValue" placeholder="Value"
+          <input type="text" class="form-control" ng-model="myCookies.ItemValue" placeholder="Value"
             aria-describedby="basic-addon1">
-            <button type="button" class="btn btn-info" ng-click="myCookies.addItem(myCookies.ItemKey, myCookies.ItemValue)">Add to cookies</button>
-            <hr>
-            <input type="text" class="form-control col-10" ng-model="myCookies.removeItemKey" placeholder="Item Key"
+          <button type="button" class="btn btn-info"
+            ng-click="myCookies.addItem(myCookies.ItemKey, myCookies.ItemValue)">Add to cookies</button>
+          <hr>
+          <input type="text" class="form-control col-10" ng-model="myCookies.removeItemKey" placeholder="Item Key"
             aria-describedby="basic-addon1">
-            <button type="button" class="btn btn-warning" ng-click="myCookies.removeItem(myCookies.removeItemKey)">Remove cookie </button>
-            <input type="text" class="form-control col-3" ng-model="myCookies.getItemKey" placeholder="Key"
+          <button type="button" class="btn btn-warning" ng-click="myCookies.removeItem(myCookies.removeItemKey)">Remove
+            cookie </button>
+          <input type="text" class="form-control col-3" ng-model="myCookies.getItemKey" placeholder="Key"
             aria-describedby="basic-addon1">
-            <input type="text" disabled value="Value:{{ myCookies.curentItem }}" />
-            <button type="button" class="btn btn-info" ng-click="myCookies.getItem(myCookies.getItemKey)">Get cookie </button>
-            
-          </p>
+          <input type="text" disabled value="Value:{{ myCookies.curentItem }}" />
+          <button type="button" class="btn btn-info" ng-click="myCookies.getItem(myCookies.getItemKey)">Get cookie
+          </button>
+
+        </p>
       </details>
-      
+
       </p>
     </div>
   </div>
@@ -129,13 +134,13 @@
   <div ng-controller="FatherServiceController as servicefather" class="container border border-primary">
     <h2 class="text-center ">SERVICES</h2>
     <p>model from service:</p>
-    <p><input type="text" ng-model="servicefather.model.user.name"/>
+    <p><input type="text" ng-model="servicefather.model.user.name" />
       <button type="button" class="btn btn-info" ng-click="servicefather.model.sayHello()">Service()</button>
     </p>
     <div class="row text-center flex">
       <div ng-controller="FirstChildServiceController as first" class="col border border-info">
         first child
-        <p>local edit:<input type="text" ng-model="first.user1.name"/></p>
+        <p>local edit:<input type="text" ng-model="first.user1.name" /></p>
         <p>firstchildUser name: {{first.user1.name}}</p>
         <p>SeconddUser name: {{first.user2.name}}</p>
         <p>service inherited(Shared model) name: {{ first.model.user.name}}</p>
@@ -143,9 +148,10 @@
           <button type="button" class="btn btn-success" ng-click="first.model.sayHello()">Service()</button>
         </p>
       </div>
+
       <div ng-controller="SecondChildServiceController as second" class="col border border-success">
         second child
-        <p>local edit:<input type="text" ng-model="second.user2.name"/></p>
+        <p>local edit:<input type="text" ng-model="second.user2.name" /></p>
         <p>firstchildUser name: {{first.user1.name}}</p>
         <p>SeconddUser name: {{second.user2.name}}</p>
         <p>service inherited(Shared model) name: {{ second.model.user.name}}</p>
@@ -153,9 +159,40 @@
           <button type="button" class="btn btn-success" ng-click="second.model.sayHello()">Service()</button>
         </p>
       </div>
+
     </div>
   </div>
   <hr>
+  <details>
+    <summary class="text-center border border-info">
+      <h2>Get Service</h3>
+    </summary>
+    <div class="row text-center" style="overflow: auto; ">
+      <div ng-controller="GetServiceController as getService" class="border border-success">
+        <button type="button" class="btn btn-success"
+          ng-click="getService.model.getUsers()">Get::GithubUsersAPI()</button>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item" ng-repeat="user in getService.model.users | limitTo:10">
+            {{user.login}}
+          </li>
+        </ul>
+        <br>
+        <div class="d-inline-flex">
+          <div class="col card" ng-repeat="user in getService.model.users | limitTo:5">
+            <img class="card-img-top" ng-src="{{user.avatar_url}}" alt="image ">
+            <div class="card-body">
+              <h5 class="card-title">{{user.login}}</h5>
+              <p class="card-text">{{user.type}}</p>
+              <a ng-href="{{user.url}}" class="btn btn-primary">Go to repos</a>
+              <a ng-href="{{user.html_url}}" class="btn btn-info">more info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+  <hr>
+
 </body>
 
 </html>

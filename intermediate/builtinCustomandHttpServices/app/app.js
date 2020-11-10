@@ -3,12 +3,24 @@
 angular.module('myApp', ['ngCookies']);
 
 /**custom service */
-/*
+/**/
 angular.module('myApp')
-        .service('MainController', ['$scope','$interval','$timeout', function($scope, $interval, $timeout){
-            var vm=this;//as sintax
-}]);
-*/
+        .service('AppModel', function($http){
+            this.users=[{
+                login:"defaultUser1"
+            }];
+
+            this.getUsers= function(){
+                $http.get("https://api.github.com/users")
+                    .then(function(response){
+                        this.users= response.data;
+                    }.bind(this),
+                    function(response){
+                        console.log(response.data);
+                    })
+            };
+});
+/* comment this to make GET service work
  angular.module('myApp')
          .factory('AppModel', function(){
             var model={};//creates objet to return it
@@ -22,6 +34,7 @@ angular.module('myApp')
 
             return model;
 });
+*/
 /*
  angular.module('myApp')
          .service('AppModel', function(){
@@ -165,4 +178,13 @@ angular.module('myApp')
             vm.user2={
                 name:"Jane Doe from Second"
             };
+}]);
+
+/**OJO SIEMPRE ES APP MODEL!!!! SOLO SE APENDEN NUEVOS DATOS */
+angular.module('myApp')
+        .controller('GetServiceController', ['AppModel', function(AppModel){
+            var vm=this;//as sintax
+            vm.model= AppModel;
+            
+            vm.userDefault=vm.model.users;
 }]);
