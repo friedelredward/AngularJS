@@ -54,3 +54,13 @@ angular.module('myApp')
         vm.details = "Hello From product";
          vm.productId=$routeParams.productId;
 }]);
+
+angular.module('myApp')
+    .controller('MyNavController', ['$location', function($location) {
+        var vm = this;//as sintax
+        vm.details = "Hello From About";
+
+        vm.goto=(path)=>{
+            $location.path(path);
+        };
+}]);

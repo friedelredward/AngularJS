@@ -45,6 +45,17 @@
   <a href="#!welcome?firstName=nombre&lastName=asdasd" class="btn btn-secondary">Go 1</a>
   <a href="#!welcome?userId=asdasdaso21232123123asd" class="btn btn-secondary">Go 2</a>
 </details>
+<details>
+  <summary>dynamic Nav:: clientside routing <code>$location</code></summary>
+  
+  <div ng-controller="MyNavController as nav" class="container">
+    no hardcoded buttons here :D
+    
+    <button  ng-click="nav.goto('/welcome')" class="btn btn-info">Go to route1(Welcome)</button>
+    <button  ng-click="nav.goto('/about')" class="btn btn-success">Go to route2(About)</button>
+  </div>
+
+</details>
   
 
 </body>
