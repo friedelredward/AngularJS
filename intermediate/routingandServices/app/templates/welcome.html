@@ -1,0 +1,10 @@
+<div>
+    <h3>   Welcome page</h3>
+    <p>{{vm.details }}</p>
+    <p>QueryString params:: {{vm.queryStringParams}}</p>
+    <hr>
+    <p><input class="form-control" type="text" ng-model="vm.comments"/>
+        <button class="btn btn-warning" ng-click="vm.reload()">RELOAD(route/component)</button></p>
+    <hr>
+    <p>route custom property binding: DATA:: {{vm.exmplData}}</p>
+</div>
