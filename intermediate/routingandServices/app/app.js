@@ -58,9 +58,18 @@ angular.module('myApp')
 angular.module('myApp')
     .controller('MyNavController', ['$location', function($location) {
         var vm = this;//as sintax
-        vm.details = "Hello From About";
-
         vm.goto=(path)=>{
+            $location.path(path);
+        };
+}]);
+/**browsing/ routing without affecting browser hystory!! 
+ * AKA ::replacing views
+*/
+angular.module('myApp')
+    .controller('MyNavHistoryController', ['$location', function($location) {
+        var vm = this;//as sintax
+        vm.goto=(path)=>{
+            $location.replace();
             $location.path(path);
         };
 }]);
