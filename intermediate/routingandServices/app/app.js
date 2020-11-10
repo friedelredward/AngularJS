@@ -33,6 +33,16 @@ angular.module('myApp')
         }).otherwise({ redirectTo: '/'});//default route
 }]);
 
+angular.module('myApp')
+    .run( function($rootScope) {
+        /**global variable */
+        /** CAN be used in ANY controller
+         * but every controller can ovveride it and lose root info
+         * so USE WITH CAUTION
+         */
+        $rootScope.exampleValue="Value from root scope";
+        $rootScope.sayhello=()=>{alert("Hellow from rooscope");}
+});
 
 
 /**
@@ -103,5 +113,4 @@ angular.module('myApp')
         vm.aplyFilter=()=>{
             vm.parsedValue= dashes(vm.inputValue);
         };
-        
 }]);
