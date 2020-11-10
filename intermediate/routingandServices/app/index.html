@@ -29,11 +29,18 @@
 <body ng-app="myApp">
   <h1>Services and<span class="badge badge-info">Routing</span></h1>
   <hr>
-  <h2>Routes will load here</h2><div ng-view></div>
   <a href="#!welcome" class="btn btn-primary">Go to welcome</a>
-  <a href="#!contact" class="btn btn-info">Goto Contact</a>
   <a href="#!about" class="btn btn-secondary">Go about</a>
+  <h2>Routes will load here</h2>
+  <div class="container card" ng-view></div>
+  <details>
+    <summary>links + params</summary>
+    
+    <a href="#!product/1" class="btn btn-secondary">Go product1</a>
+    <a href="#!product/2" class="btn btn-secondary">Go product2</a>
+</details>
   
+
 </body>
 
 </html>

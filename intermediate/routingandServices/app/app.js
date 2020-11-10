@@ -15,9 +15,9 @@ angular.module('myApp')
             controller: 'AboutController',
             controllerAs: 'vm'
         })
-        .when("/contact", {
-            templateUrl: "templates/contact.html",
-            controller: 'ContactController',
+        .when("/product/:productId", {
+            templateUrl: "templates/product.html",
+            controller: 'ProductController',
             controllerAs: 'vm'
         }).otherwise({ redirectTo: '/'});
 }]);
@@ -37,7 +37,8 @@ angular.module('myApp')
 }]);
 
 angular.module('myApp')
-    .controller('ContactController', [function() {
+    .controller('ProductController', ['$routeParams',function($routeParams) {
         var vm = this;//as sintax
-        vm.details = "Hello From CONTACT";
+        vm.details = "Hello From product";
+         vm.productId=$routeParams.productId;
 }]);
