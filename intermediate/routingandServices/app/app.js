@@ -30,6 +30,10 @@ angular.module('myApp')
         vm.details = "Hello From WELCOME";
         /**getting params from URL STRING (route) */
         vm.queryStringParams= $route.current.params;
+
+        vm.reload=()=>{
+            $route.reload();
+        };
 }]);
 
 angular.module('myApp')
