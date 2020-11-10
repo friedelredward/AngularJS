@@ -14,7 +14,7 @@
 - create a simple custom service
 - use the` $http service` to get server data
 - use the $http service to POST server data
-- use the `$resource service` to request server data
+- use the `$resource service` to simplyfy CRUD on object https://hpe.percipio.com/courses/93217815-14c0-11e7-92d9-0242c0a80b07/videos/9321c634-14c0-11e7-92d9-0242c0a80b07()
 - use the $`http and $q services` together
 - use the $http service to GET and POST server data
 </details>
