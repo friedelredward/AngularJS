@@ -66,10 +66,20 @@ angular.module('myApp')
  * AKA ::replacing views
 */
 angular.module('myApp')
-    .controller('MyNavHistoryController', ['$location', function($location) {
+    .controller('MyNavHistoryController', ['$location','$log', function($location, $log) {
         var vm = this;//as sintax
         vm.goto=(path)=>{
             $location.replace();
             $location.path(path);
         };
+
+        vm.clickLog= function(data){
+            console.log("clicked");
+            $log.log(data);
+            $log.error(data);
+            $log.info(data);
+            $log.warn(data);
+            $log.debug(data);
+        };
+
 }]);
