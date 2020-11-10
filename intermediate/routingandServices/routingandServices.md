@@ -27,6 +27,6 @@ use the $location service to replace views without altering browser history
 
 - use the $filter function (AS SERVICE)from markup and controller
 use the $rootScope service
-use the $window and $document services
-use the $q service
+- use the `$window and $document` services are available though all angula since are native JS, window.alert(). console.log(document)
+use the $q service `var defer=q.defer()` if succes `defer.resolve(data)` else `defer.reject(new Error("erorr"))`...` return defer.promise` wich later we consume in the controller
 </details>
