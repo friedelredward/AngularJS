@@ -19,7 +19,7 @@ angular.module('myApp')
             templateUrl: "templates/product.html",
             controller: 'ProductController',
             controllerAs: 'vm'
-        }).otherwise({ redirectTo: '/'});
+        }).otherwise({ redirectTo: '/'});//default route
 }]);
 
 /**
